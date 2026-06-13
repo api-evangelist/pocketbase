@@ -1,0 +1,77 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "aid": "https://apis.io/vocab/aid",
+    "pocketbase": "https://pocketbase.io/vocab/",
+    "SoftwareApplication": "SoftwareApplication",
+    "WebAPI": "WebAPI",
+    "name": "name",
+    "description": "description",
+    "url": "url",
+    "documentation": "documentation",
+    "provider": "provider",
+    "version": "version",
+    "license": "license",
+    "programmingLanguage": "programmingLanguage",
+    "collection": {
+      "@id": "pocketbase:collection",
+      "@type": "@id"
+    },
+    "record": {
+      "@id": "pocketbase:record",
+      "@type": "@id"
+    },
+    "authMethod": {
+      "@id": "pocketbase:authMethod",
+      "@type": "@vocab"
+    },
+    "realtimeSubscription": {
+      "@id": "pocketbase:realtimeSubscription",
+      "@type": "@id"
+    },
+    "fileUpload": {
+      "@id": "pocketbase:fileUpload",
+      "@type": "@id"
+    },
+    "superuser": {
+      "@id": "pocketbase:superuser",
+      "@type": "@id"
+    },
+    "hook": {
+      "@id": "pocketbase:hook",
+      "@type": "@id"
+    },
+    "otp": {
+      "@id": "pocketbase:otp",
+      "@type": "@vocab"
+    },
+    "oauth2": {
+      "@id": "pocketbase:oauth2",
+      "@type": "@vocab"
+    },
+    "ssEvent": {
+      "@id": "pocketbase:ssEvent",
+      "@type": "@id"
+    },
+    "sqlite": {
+      "@id": "pocketbase:sqlite",
+      "@type": "@vocab"
+    }
+  },
+  "@type": "WebAPI",
+  "name": "PocketBase API",
+  "description": "PocketBase is an open-source backend-as-a-service providing a REST API for managing collections, records, authentication, file uploads, real-time subscriptions via SSE, and admin management.",
+  "url": "https://pocketbase.io",
+  "documentation": "https://pocketbase.io/docs/",
+  "provider": {
+    "@type": "Organization",
+    "name": "PocketBase",
+    "url": "https://pocketbase.io",
+    "sameAs": [
+      "https://github.com/pocketbase",
+      "https://x.com/pocketbase"
+    ]
+  },
+  "license": "https://github.com/pocketbase/pocketbase/blob/master/LICENSE.md",
+  "programmingLanguage": "Go"
+}

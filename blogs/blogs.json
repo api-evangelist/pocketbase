@@ -1,0 +1,9 @@
+{
+  "aid": "pocketbase",
+  "url": "https://github.com/pocketbase/pocketbase/releases.atom",
+  "type": "atom",
+  "title": "PocketBase Releases",
+  "description": "PocketBase release notes and changelog via GitHub Releases Atom feed.",
+  "lastFetched": "2026-06-12",
+  "posts": []
+}

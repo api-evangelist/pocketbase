@@ -121,6 +121,10 @@ common:
     url: rate-limits/pocketbase-rate-limits.yml
   - type: FinOps
     url: finops/pocketbase-finops.yml
+  - type: BlogFeed
+    url: blogs/blogs.json
+  - type: JsonLdContext
+    url: json-ld/pocketbase-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,80 @@
+specificationVersion: "1.0"
+framework: FinOps Framework FOCUS-aligned
+aid: pocketbase
+name: PocketBase FinOps
+description: >
+  PocketBase is MIT-licensed open-source software with zero software licensing
+  cost. All financial considerations relate to the infrastructure required to
+  self-host the executable. Because PocketBase is a single binary with an
+  embedded SQLite database, compute and storage requirements are modest compared
+  to multi-service backends. FinOps considerations center on right-sizing the
+  host, managing storage growth, and planning for S3-compatible object storage
+  for file uploads at scale.
+costs:
+  - category: Software License
+    description: PocketBase binary — MIT License, no cost.
+    amount: 0
+    currency: USD
+    billing: one-time
+  - category: Compute (example — smallest viable VPS)
+    description: >
+      A single shared-CPU VPS (1 vCPU, 512 MB–1 GB RAM) is sufficient for
+      low-to-medium traffic workloads. Reference pricing from common providers:
+      Hetzner CX11 ~$4/month, Oracle Cloud Free Tier (ARM), Vultr $2.50/month,
+      Linode Nanode $5/month. Actual cost depends on provider and region.
+    amountMin: 0
+    amountMax: 12
+    currency: USD
+    billing: monthly
+    unit: instance
+  - category: Persistent Storage (block/disk)
+    description: >
+      SQLite database and local file storage reside on the host disk. Typical
+      VPS plans include 10–80 GB SSD. Additional block storage costs vary by
+      provider (~$0.10–$0.12 per GB/month).
+    amountMin: 0
+    amountMax: 10
+    currency: USD
+    billing: monthly
+    unit: GB
+  - category: S3-Compatible Object Storage (optional)
+    description: >
+      PocketBase supports S3-compatible backends (AWS S3, Backblaze B2, Cloudflare R2,
+      MinIO) for file storage at scale. Backblaze B2 is ~$0.006/GB/month stored
+      plus egress; Cloudflare R2 is ~$0.015/GB/month with zero egress fees.
+    amountMin: 0
+    amountMax: 50
+    currency: USD
+    billing: monthly
+    unit: GB + egress
+  - category: Backups
+    description: >
+      PocketBase includes built-in automated backup support to S3-compatible
+      storage. Cost is the object storage cost for backup data. On-disk backups
+      consume block storage quota.
+    amountMin: 0
+    amountMax: 10
+    currency: USD
+    billing: monthly
+    unit: GB
+  - category: Egress / Bandwidth
+    description: >
+      Outbound data transfer for API responses and file downloads. Many budget
+      VPS providers include 1–5 TB/month of egress. Beyond that, costs range
+      from $0.01–$0.09/GB depending on provider and region.
+    amountMin: 0
+    amountMax: 20
+    currency: USD
+    billing: monthly
+    unit: GB
+optimizationTips:
+  - Use Cloudflare R2 for file storage to eliminate egress fees on file downloads.
+  - Start on Oracle Cloud Free Tier (ARM) for zero infrastructure cost during prototyping.
+  - Enable PocketBase's built-in gzip and caching settings to reduce bandwidth consumption.
+  - Use SQLite WAL mode (default in PocketBase) to maximize read throughput on small instances.
+  - Monitor database size growth; vacuum periodically for storage efficiency.
+  - Scale vertically (larger single instance) before horizontally — PocketBase is not designed for horizontal clustering in its base form.
+totalCostOfOwnership:
+  minimal: "$0/month (Oracle Cloud Free Tier + local file storage)"
+  typical: "$5–$20/month (budget VPS + B2/R2 object storage)"
+  production: "$20–$100+/month (dedicated VPS + managed backups + CDN)"

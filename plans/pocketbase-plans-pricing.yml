@@ -1,0 +1,42 @@
+specificationVersion: "0.1"
+aid: pocketbase
+name: PocketBase Plans and Pricing
+description: >
+  PocketBase is free and open-source software licensed under the MIT License.
+  There are no paid tiers, hosted SaaS plans, or commercial offerings from the
+  project itself. Users self-host PocketBase on their own infrastructure at no
+  software cost. Third-party managed hosting providers offer paid hosting plans
+  separately.
+plans:
+  - name: Open Source (Self-Hosted)
+    description: >
+      Full-featured PocketBase backend with no feature restrictions. Download a
+      single prebuilt executable for your platform and run it on any server or
+      local machine. Includes all APIs, authentication methods, file storage,
+      real-time subscriptions, admin dashboard, and extension capabilities.
+    price: 0
+    currency: USD
+    billing: free
+    features:
+      - Embedded SQLite database
+      - REST API for collections and records
+      - Password, OAuth2, and OTP authentication
+      - Real-time subscriptions via SSE
+      - File upload and management
+      - Admin dashboard UI
+      - JavaScript and Go extension hooks
+      - Official JavaScript and Dart SDKs
+      - Batch API operations
+      - S3-compatible external storage support
+      - Automated backups (configurable)
+      - No user or record limits (hardware-bound)
+    limitations:
+      - Self-hosting and infrastructure management required
+      - No official SLA or guaranteed support
+      - Community-driven support only (GitHub Discussions)
+      - Pre-1.0.0: no backward compatibility guarantee
+notes: >
+  The project maintainer explicitly does not accept donations from individuals.
+  Organizations interested in sponsorship with no strings attached may contact
+  support@pocketbase.io. Third-party managed PocketBase hosting (e.g., Elestio)
+  starts around $11/month but is not affiliated with the PocketBase project.

@@ -1,0 +1,64 @@
+specificationVersion: "0.1"
+aid: pocketbase
+name: PocketBase Rate Limits
+description: >
+  PocketBase includes a configurable rate-limiting system that self-hosters can
+  tune via the admin dashboard under Settings. Default rate limit rules apply to
+  specific endpoint categories. HTTP 429 Too Many Requests is returned when
+  limits are exceeded. Because PocketBase is self-hosted, operators have full
+  control over these defaults and can adjust or disable them entirely.
+rateLimits:
+  - name: Authentication Endpoints
+    description: >
+      Applies to auth-with-password, auth-with-otp, request-otp, and similar
+      auth initiation endpoints to prevent brute-force and credential-stuffing
+      attacks.
+    requests: 2
+    window: 3
+    windowUnit: seconds
+    scope: per-IP
+    endpoints:
+      - POST /api/collections/{collection}/auth-with-password
+      - POST /api/collections/{collection}/auth-with-otp
+      - POST /api/collections/{collection}/request-otp
+    response: 429 Too Many Requests
+  - name: Record Create Operations
+    description: >
+      Applies to record creation endpoints across all collections to throttle
+      rapid write bursts.
+    requests: 20
+    window: 5
+    windowUnit: seconds
+    scope: per-IP
+    endpoints:
+      - POST /api/collections/{collection}/records
+    response: 429 Too Many Requests
+  - name: Batch API
+    description: >
+      Applies to the batch endpoint which processes multiple create, update,
+      upsert, and delete operations in a single transaction.
+    requests: 3
+    window: 1
+    windowUnit: seconds
+    scope: per-IP
+    endpoints:
+      - POST /api/batch
+    response: 429 Too Many Requests
+  - name: General API
+    description: >
+      Default fallback rate limit applied to all other API endpoints not covered
+      by a more specific rule.
+    requests: 300
+    window: 10
+    windowUnit: seconds
+    scope: per-IP
+    endpoints:
+      - ALL /api/*
+    response: 429 Too Many Requests
+notes: >
+  Rate limits are configurable by the self-hosting operator through the admin
+  dashboard (Settings > Rate limits). These defaults reflect the documented
+  example configuration. Operators can add custom rules per route, adjust
+  windows and request counts, or disable rate limiting entirely. There are no
+  externally enforced global limits imposed by the PocketBase project since
+  there is no hosted service.

@@ -1,0 +1,126 @@
+aid: pocketbase
+name: PocketBase
+description: >
+  PocketBase is an open-source backend-as-a-service delivered as a single executable,
+  providing a REST API for managing collections, records, authentication, file uploads,
+  real-time subscriptions via Server-Sent Events, and admin management through a built-in
+  dashboard. It embeds SQLite for persistent storage and supports OAuth2, OTP, and
+  password-based authentication out of the box. Developers can extend PocketBase with
+  custom business logic using Go or JavaScript hooks and event handlers. Official SDKs
+  for JavaScript and Dart make client integration straightforward across web, mobile,
+  and desktop platforms.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/pocketbase/refs/heads/main/apis.yml
+created: "2026-06-12"
+modified: "2026-06-12"
+specificationVersion: "0.19"
+tags:
+  - Backend-as-a-Service
+  - Open Source
+  - SQLite
+  - Realtime
+  - Authentication
+  - File Storage
+  - REST API
+  - Self-Hosted
+  - Go
+apis:
+  - aid: pocketbase:records-api
+    name: PocketBase Records API
+    description: >
+      CRUD operations for collection records including list, view, create, update,
+      delete, and batch operations. Supports filtering, sorting, pagination, relation
+      expansion, field selection, and multipart file uploads.
+    humanURL: https://pocketbase.io/docs/api-records/
+    baseURL: https://your-instance.pocketbase.io
+    tags:
+      - Records
+      - Collections
+      - CRUD
+    properties:
+      - type: Documentation
+        url: https://pocketbase.io/docs/api-records/
+  - aid: pocketbase:authentication-api
+    name: PocketBase Authentication API
+    description: >
+      Authentication endpoints supporting password-based login, OAuth2 providers,
+      one-time passwords, token refresh, email verification, password reset,
+      email change confirmation, and superuser impersonation.
+    humanURL: https://pocketbase.io/docs/api-records/
+    baseURL: https://your-instance.pocketbase.io
+    tags:
+      - Authentication
+      - OAuth2
+      - OTP
+      - JWT
+    properties:
+      - type: Documentation
+        url: https://pocketbase.io/docs/api-records/
+  - aid: pocketbase:realtime-api
+    name: PocketBase Realtime API
+    description: >
+      Server-Sent Events (SSE) based real-time subscriptions for create, update,
+      and delete record events across individual records or entire collections.
+      Connections auto-disconnect after 5 minutes of inactivity.
+    humanURL: https://pocketbase.io/docs/api-realtime/
+    baseURL: https://your-instance.pocketbase.io
+    tags:
+      - Realtime
+      - SSE
+      - Subscriptions
+    properties:
+      - type: Documentation
+        url: https://pocketbase.io/docs/api-realtime/
+  - aid: pocketbase:files-api
+    name: PocketBase Files API
+    description: >
+      File download, thumbnail generation, and protected file token generation.
+      File uploads are handled through the Records API using multipart form data.
+      Supports on-the-fly image resizing and forced download responses.
+    humanURL: https://pocketbase.io/docs/api-files/
+    baseURL: https://your-instance.pocketbase.io
+    tags:
+      - Files
+      - Uploads
+      - Images
+    properties:
+      - type: Documentation
+        url: https://pocketbase.io/docs/api-files/
+  - aid: pocketbase:settings-api
+    name: PocketBase Settings API
+    description: >
+      Superuser-only endpoints for listing and updating application settings,
+      testing S3 storage connectivity, sending test emails, generating Apple
+      OAuth2 client secrets, and configuring rate-limiting rules.
+    humanURL: https://pocketbase.io/docs/api-settings/
+    baseURL: https://your-instance.pocketbase.io
+    tags:
+      - Settings
+      - Admin
+      - Configuration
+    properties:
+      - type: Documentation
+        url: https://pocketbase.io/docs/api-settings/
+common:
+  - type: Website
+    url: https://pocketbase.io
+  - type: Documentation
+    url: https://pocketbase.io/docs/
+  - type: GitHubOrg
+    url: https://github.com/pocketbase
+  - type: Blog
+    url: https://github.com/pocketbase/pocketbase/releases
+  - type: Pricing
+    url: https://pocketbase.io/faq/
+  - type: X
+    url: https://x.com/pocketbase
+  - type: Plans
+    url: plans/pocketbase-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/pocketbase-rate-limits.yml
+  - type: FinOps
+    url: finops/pocketbase-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

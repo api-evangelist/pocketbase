@@ -1,0 +1,230 @@
+# PocketBase Data Model — Documentation-Only GraphQL SDL
+#
+# PocketBase is a REST-only backend and does NOT expose a GraphQL endpoint.
+# This schema represents the core data model types derived from the Go source:
+# https://github.com/pocketbase/pocketbase/tree/master/core
+#
+# Field names and types are sourced from the Go struct definitions and JSON tags
+# in the PocketBase core package. This file is for reference/documentation only.
+
+"""
+A single record stored in a PocketBase collection.
+Every record has a base set of system fields; user-defined fields vary by collection schema.
+Source: core/record_model.go, core/field.go
+"""
+type Record {
+  "Unique record identifier (15-char alphanumeric by default)."
+  id: ID!
+
+  "Timestamp when the record was created."
+  created: String!
+
+  "Timestamp when the record was last updated."
+  updated: String!
+
+  "ID of the collection this record belongs to."
+  collectionId: String!
+
+  "Name of the collection this record belongs to."
+  collectionName: String!
+
+  "Expanded relation fields, keyed by field name. Only present when ?expand= is used."
+  expand: JSON
+}
+
+"""
+An auth-type record (e.g. users collection) with additional authentication fields.
+Source: core/record_model_auth.go, core/field.go — FieldNameEmail, FieldNameVerified, etc.
+"""
+type AuthRecord {
+  "Unique record identifier."
+  id: ID!
+
+  "Timestamp when the auth record was created."
+  created: String!
+
+  "Timestamp when the auth record was last updated."
+  updated: String!
+
+  "ID of the collection this auth record belongs to."
+  collectionId: String!
+
+  "Name of the collection this auth record belongs to."
+  collectionName: String!
+
+  "The auth record email address."
+  email: String
+
+  "Whether the email address is publicly visible."
+  emailVisibility: Boolean!
+
+  "Whether the email address has been verified."
+  verified: Boolean!
+
+  "Expanded relation fields."
+  expand: JSON
+}
+
+"""
+A PocketBase collection defining a set of records, their fields, and access rules.
+Source: core/collection_model.go — baseCollection struct
+"""
+type Collection {
+  "Unique collection identifier."
+  id: ID!
+
+  "Timestamp when the collection was created."
+  created: String!
+
+  "Timestamp when the collection was last updated."
+  updated: String!
+
+  "Human-readable collection name (used in API paths)."
+  name: String!
+
+  """
+  Collection type: 'base', 'auth', or 'view'.
+  Source: core/collection_model.go CollectionTypeBase/Auth/View constants.
+  """
+  type: CollectionType!
+
+  "Ordered list of field definitions for this collection."
+  fields: [CollectionField!]!
+
+  "List of raw SQL index expressions applied to the collection table."
+  indexes: [String!]!
+
+  "Whether this collection is a system-managed internal collection."
+  system: Boolean!
+
+  "Filter rule controlling which records can be listed. Null means admin-only."
+  listRule: String
+
+  "Filter rule controlling which records can be viewed. Null means admin-only."
+  viewRule: String
+
+  "Filter rule controlling who can create records. Null means admin-only."
+  createRule: String
+
+  "Filter rule controlling who can update records. Null means admin-only."
+  updateRule: String
+
+  "Filter rule controlling who can delete records. Null means admin-only."
+  deleteRule: String
+}
+
+"""
+A field definition within a collection schema.
+Source: core/field.go Field interface and concrete *Field structs.
+"""
+type CollectionField {
+  "Stable unique identifier for the field (auto-generated from name)."
+  id: String!
+
+  "Field name used as the JSON key and API filter key."
+  name: String!
+
+  """
+  Field type. Known values: text, number, bool, email, url, editor, date,
+  autodate, select, file, relation, json, password, geoPoint.
+  """
+  type: String!
+
+  "Whether this is a system-managed field that cannot be renamed or removed."
+  system: Boolean!
+
+  "Whether this field is hidden from API responses."
+  hidden: Boolean!
+
+  "Whether to use this field's value as the label in relation previews."
+  presentable: Boolean!
+
+  "Whether the field value is required (non-empty)."
+  required: Boolean!
+}
+
+"""
+A file attached to a record. Files are stored by filename within a record field.
+Source: core/field_file.go FileField struct
+"""
+type FileField {
+  "Unique stable field identifier."
+  id: String!
+
+  "Field name as stored on the record."
+  name: String!
+
+  "Whether this is a system-managed field."
+  system: Boolean!
+
+  "Whether this field is hidden from API responses."
+  hidden: Boolean!
+
+  "Maximum number of files allowed in this field (1 = single file)."
+  maxSelect: Int!
+
+  "Maximum file size in bytes."
+  maxSize: Int!
+
+  "Allowed MIME type patterns (e.g. 'image/*')."
+  mimeTypes: [String!]!
+
+  "Allowed file extensions without the leading dot."
+  thumbs: [String!]!
+
+  "Whether to protect files with a short-lived token for private access."
+  protected: Boolean!
+}
+
+"""
+Collection type enum.
+Source: core/collection_model.go CollectionTypeBase/Auth/View constants.
+"""
+enum CollectionType {
+  base
+  auth
+  view
+}
+
+"""
+Pagination metadata returned with list responses.
+Source: PocketBase REST API list response envelope.
+"""
+type ListMeta {
+  "Current page number (1-based)."
+  page: Int!
+
+  "Number of records per page."
+  perPage: Int!
+
+  "Total number of records matching the filter."
+  totalItems: Int!
+
+  "Total number of pages."
+  totalPages: Int!
+}
+
+"""
+Paginated list of records.
+"""
+type RecordList {
+  page: Int!
+  perPage: Int!
+  totalItems: Int!
+  totalPages: Int!
+  items: [Record!]!
+}
+
+"""
+Paginated list of collections.
+"""
+type CollectionList {
+  page: Int!
+  perPage: Int!
+  totalItems: Int!
+  totalPages: Int!
+  items: [Collection!]!
+}
+
+"Arbitrary JSON scalar for expand fields and JSON-typed collection fields."
+scalar JSON

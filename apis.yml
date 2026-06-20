@@ -11,7 +11,7 @@ description: 'PocketBase is an open-source backend-as-a-service delivered as a s
 
   '
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/pocketbase/refs/heads/main/apis.yml
 created: '2026-06-12'
 modified: '2026-06-12'

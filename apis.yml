@@ -131,7 +131,7 @@ common:
   url: finops/pocketbase-finops.yml
 - type: BlogFeed
   url: blogs/blogs.json
-- type: JsonLdContext
+- type: JSONLDContext
   url: json-ld/pocketbase-context.jsonld
 maintainers:
 - FN: Kin Lane

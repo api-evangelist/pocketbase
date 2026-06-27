@@ -4,10 +4,15 @@
   "type": "atom",
   "title": "PocketBase Releases",
   "description": "PocketBase release notes and changelog via GitHub Releases Atom feed.",
-  "lastFetched": "2026-06-12",
-  "posts": [],
   "repo": "pocketbase",
   "feeds": [
+    {
+      "source": "https://github.com/pocketbase/pocketbase/releases.atom",
+      "feed_url": "https://github.com/pocketbase/pocketbase/releases.atom",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
     {
       "source": "https://github.com/pocketbase",
       "feed_url": "https://github.com/pocketbase",
@@ -17,5 +22,5 @@
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:03:07Z"
 }

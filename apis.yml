@@ -111,6 +111,8 @@ apis:
   - type: Documentation
     url: https://pocketbase.io/docs/api-settings/
 common:
+- type: DomainSecurity
+  url: security/pocketbase-domain-security.yml
 - type: Website
   url: https://pocketbase.io
 - type: Documentation

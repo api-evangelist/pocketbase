@@ -30,6 +30,16 @@ modified: '2026-06-12'
 specificationVersion: '0.23'
 tags:
 - Backend-as-a-Service
+- Open-Source
+- SQLite
+- Real-Time
+- Authentication
+- File Storage
+- REST API
+- Self-Hosted
+- Go
+tags_raw:
+- Backend-as-a-Service
 - Open Source
 - SQLite
 - Realtime
@@ -50,6 +60,10 @@ apis:
   baseURL: https://your-instance.pocketbase.io
   tags:
   - Records
+  - Collection
+  - CRUD
+  tags_raw:
+  - Records
   - Collections
   - CRUD
   properties:
@@ -68,6 +82,10 @@ apis:
   baseURL: https://your-instance.pocketbase.io
   tags:
   - Authentication
+  - OTP
+  - JWT
+  tags_raw:
+  - Authentication
   - OAuth2
   - OTP
   - JWT
@@ -84,6 +102,10 @@ apis:
   humanURL: https://pocketbase.io/docs/api-realtime/
   baseURL: https://your-instance.pocketbase.io
   tags:
+  - Real-Time
+  - SSE
+  - Subscription
+  tags_raw:
   - Realtime
   - SSE
   - Subscriptions
@@ -100,6 +122,10 @@ apis:
   humanURL: https://pocketbase.io/docs/api-files/
   baseURL: https://your-instance.pocketbase.io
   tags:
+  - File
+  - Uploads
+  - Image
+  tags_raw:
   - Files
   - Uploads
   - Images

@@ -41,7 +41,7 @@ modified: '2026-06-12'
 specificationVersion: '0.23'
 tags:
 - Backend-as-a-Service
-- Open-Source
+- Open Source
 - SQLite
 - Real-Time
 - Authentication
@@ -59,6 +59,7 @@ tags_raw:
 - REST API
 - Self-Hosted
 - Go
+- Open-Source
 apis:
 - aid: pocketbase:records-api
   name: PocketBase Records API
@@ -80,8 +81,6 @@ apis:
   properties:
   - type: Documentation
     url: https://pocketbase.io/docs/api-records/
-  - url: graphql/pocketbase-graphql.md
-    type: GraphQL
 - aid: pocketbase:authentication-api
   name: PocketBase Authentication API
   description: 'Authentication endpoints supporting password-based login, OAuth2 providers,

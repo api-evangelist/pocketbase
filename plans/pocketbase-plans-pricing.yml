@@ -44,3 +44,16 @@ notes: >
   Organizations interested in sponsorship with no strings attached may contact
   support@pocketbase.io. Third-party managed PocketBase hosting (e.g., Elestio)
   starts around $11/month but is not affiliated with the PocketBase project.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: Open Source (Self-Hosted)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []

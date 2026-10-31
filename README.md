@@ -1,4 +1,4 @@
-# PocketBase (pocketbase)
+# PocketBase
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,82 +66,118 @@
 
 PocketBase is an open-source backend-as-a-service delivered as a single executable, providing a REST API for managing collections, records, authentication, file uploads, real-time subscriptions via Server-Sent Events, and admin management through a built-in dashboard. It embeds SQLite for persistent storage and supports OAuth2, OTP, and password-based authentication out of the box. Developers can extend PocketBase with custom business logic using Go or JavaScript hooks and event handlers. Official SDKs for JavaScript and Dart make client integration straightforward across web, mobile, and desktop platforms.
 
-**APIs.json:** https://raw.githubusercontent.com/api-evangelist/pocketbase/refs/heads/main/apis.yml
+**Areas:** Backend-as-a-Service · Open Source · SQLite · Real-Time · Authentication · File Storage · REST API · Self-Hosted · Go
 
-**Naftiko:** https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=pocketbase-api-evangelist&utm_content=repo
+## PocketBase on APIs.io
 
----
+Everything profiled for PocketBase is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pocketbase/](https://apis.io/providers/pocketbase/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- Backend-as-a-Service
-- Open Source
-- SQLite
-- Realtime
-- Authentication
-- File Storage
-- REST API
-- Self-Hosted
-- Go
+- [PocketBase Records API](https://apis.io/apis/pocketbase/records-api/) — CRUD operations for collection records including list, view, create, update, delete, and batch operations. Supports filtering, sorting, pagination, relation…
+- [PocketBase Authentication API](https://apis.io/apis/pocketbase/authentication-api/) — Authentication endpoints supporting password-based login, OAuth2 providers, one-time passwords, token refresh, email verification, password reset, email…
+- [PocketBase Realtime API](https://apis.io/apis/pocketbase/realtime-api/) — Server-Sent Events (SSE) based real-time subscriptions for create, update, and delete record events across individual records or entire collections.…
+- [PocketBase Files API](https://apis.io/apis/pocketbase/files-api/) — File download, thumbnail generation, and protected file token generation. File uploads are handled through the Records API using multipart form data.…
+- [PocketBase Settings API](https://apis.io/apis/pocketbase/settings-api/) — Superuser-only endpoints for listing and updating application settings, testing S3 storage connectivity, sending test emails, generating Apple OAuth2 client…
 
----
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| API | Description |
-|-----|-------------|
-| Records API | CRUD operations for collection records with filtering, sorting, pagination, and batch support |
-| Authentication API | Password, OAuth2, OTP, token refresh, email verification, and password reset |
-| Realtime API | Server-Sent Events subscriptions for real-time record change notifications |
-| Files API | File download, thumbnail generation, and protected file token generation |
-| Settings API | Superuser-only application configuration, S3 testing, and rate-limit management |
+#### GraphQL (1)
 
----
+GraphQL schemas.
 
-## Plans / Rate Limits / FinOps
+- [Moved to /providers/pocketbase/](https://apis.io/graphqls/pocketbase/pocketbase-graphql/)
 
-| Resource | Location |
-|----------|----------|
-| Plans & Pricing | [plans/pocketbase-plans-pricing.yml](plans/pocketbase-plans-pricing.yml) |
-| Rate Limits | [rate-limits/pocketbase-rate-limits.yml](rate-limits/pocketbase-rate-limits.yml) |
-| FinOps | [finops/pocketbase-finops.yml](finops/pocketbase-finops.yml) |
+#### JSON-LD (1)
 
-**Pricing summary:** PocketBase is MIT-licensed and entirely free. Self-hosters pay only for their own infrastructure (VPS, storage, bandwidth). No hosted SaaS tiers exist from the project.
+Linked-data contexts for the provider's vocabulary.
 
-**Rate limits (configurable defaults):**
-- Auth endpoints: 2 requests / 3 seconds
-- Record create: 20 requests / 5 seconds
-- Batch API: 3 requests / 1 second
-- General API: 300 requests / 10 seconds
+- [Pocketbase Context](https://apis.io/jsonld/pocketbase/pocketbase-context/)
 
-**FinOps range:** $0/month (Oracle Free Tier) to $20–$100+/month for production workloads.
+#### Security (1)
 
----
+Authentication, trust centre, and vulnerability disclosure.
 
-## Timestamps
+- [Pocketbase Domain Security](https://apis.io/security/pocketbase/pocketbase-domain-security/)
 
-| Field | Value |
-|-------|-------|
-| Created | 2026-06-12 |
-| Modified | 2026-06-12 |
+#### Plans and pricing (1)
 
----
+Published plans, tiers and prices.
 
-## Common
+- [Pocketbase Plans Pricing](https://apis.io/plans/pocketbase/pocketbase-plans-pricing/)
 
-| Type | URL |
-|------|-----|
-| Website | https://pocketbase.io |
-| Documentation | https://pocketbase.io/docs/ |
-| GitHub Org | https://github.com/pocketbase |
-| Blog / Releases | https://github.com/pocketbase/pocketbase/releases |
-| Pricing / FAQ | https://pocketbase.io/faq/ |
-| X (Twitter) | https://x.com/pocketbase |
+#### Rate limits (1)
 
----
+Published request limits.
 
-## Maintainers
+- [Pocketbase Rate Limits](https://apis.io/rate-limits/pocketbase/pocketbase-rate-limits/)
 
-| Name | Email |
-|------|-------|
-| Kin Lane | kin@apievangelist.com |
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Pocketbase Finops](https://apis.io/finops/pocketbase/pocketbase-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://pocketbase.io)
+- [Documentation](https://pocketbase.io/docs/)
+- [Pricing](https://pocketbase.io/faq/)
+- [Blog](https://github.com/pocketbase/pocketbase/releases)
+
+## API Evangelist rating
+
+**Kin Score 17.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 14.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pocketbase/](https://apis.io/providers/pocketbase/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for PocketBase: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pocketbase/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
